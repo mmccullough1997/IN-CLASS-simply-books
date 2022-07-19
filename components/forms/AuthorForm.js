@@ -24,6 +24,7 @@ function AuthorForm({ obj }) {
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
 
+  // this is a given
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
@@ -43,7 +44,7 @@ function AuthorForm({ obj }) {
     } else {
       const payload = { ...formInput, uid: user.uid };
       createAuthor(payload).then(() => {
-        router.push('/');
+        router.push('/authors');
       });
     }
   };
