@@ -20,9 +20,10 @@ export default function ViewAuthor() {
   // TODO: Set a state for books
   const [books, setBooks] = useState([]);
 
-  const getAuthorsBooks = () => {
-    getSingleAuthorsBooks(firebaseKey).then(setBooks);
-  };
+  useEffect(() => {
+    getSingleAuthorsBooks(firebaseKey).then((setBooks));
+  }, [firebaseKey]);
+  console.warn(books);
 
   return (
     <div className="mt-5 d-flex flex-wrap">
@@ -37,9 +38,8 @@ export default function ViewAuthor() {
         Author Email: <a href={`mailto:${authorDetails.email}`}>{authorDetails.email}</a>
       </div>
       <div className="d-flex flex-wrap">
-        {/* TODO: map over books here using BookCard component */}
         {books.map((book) => (
-          <BookCard key={book.firebaseKey} bookObj={book} onUpdate={getAuthorsBooks} />
+          <BookCard key={book.firebaseKey} bookObj={book} />
         ))}
       </div>
     </div>
