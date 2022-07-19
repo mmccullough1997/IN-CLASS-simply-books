@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
-import { deleteAuthor } from '../api/authorData';
+import { deleteAuthorBooks } from '../api/mergedData';
 
 function AuthorCard({ authorObj, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE AUTHOR AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE BOOKS
   const deleteThisAuthor = () => {
     if (window.confirm(`Delete ${authorObj.last_name}?`)) {
-      deleteAuthor(authorObj.firebaseKey).then(() => onUpdate());
+      deleteAuthorBooks(authorObj.firebaseKey).then(() => onUpdate());
     }
   };
 
