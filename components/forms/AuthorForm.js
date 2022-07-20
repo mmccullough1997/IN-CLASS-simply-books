@@ -31,9 +31,9 @@ function AuthorForm({ obj }) {
       ...prevState,
       [name]: value,
     }));
-    console.warn(formInput);
-    console.warn(name);
-    console.warn(value);
+    // console.warn(formInput);
+    // console.warn(name);
+    // console.warn(value);
   };
 
   const handleSubmit = (e) => {
