@@ -50,7 +50,9 @@ function BookForm({ obj }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form
+      onSubmit={handleSubmit}
+    >
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Book</h2>
       <FloatingLabel controlId="floatingInput1" label="Book Title" className="mb-3">
         <Form.Control type="text" placeholder="Enter a title" name="title" value={formInput.title} onChange={handleChange} required />

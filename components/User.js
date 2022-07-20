@@ -2,17 +2,22 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
+import { signOut } from '../utils/auth';
 
 function User({
   image, name, email, lastLogin,
 }) {
   return (
-    <div>
-      <img src={image} alt={name}></img>
-      <h1>{name}</h1>
-      <h2>{email}</h2>
-      <h3>{lastLogin}</h3>
-    </div>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={image} alt={name} />
+      <Card.Body>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>{email}</Card.Text>
+        <Card.Text>{lastLogin}</Card.Text>
+      </Card.Body>
+      <button type="button" className="btn btn-danger" onClick={signOut}>Sign Out</button>
+    </Card>
   );
 }
 
